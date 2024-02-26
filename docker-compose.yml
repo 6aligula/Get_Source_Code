@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  debian_scraper:
+    image: debian:latest
+    container_name: debian_scraper_container
+    volumes:
+      - ./get_source_code.sh:/usr/local/bin/scraper_sh
+      - ./data:/data
+    command: /bin/bash -c "chmod +x /usr/local/bin/scraper_sh && /usr/local/bin/scraper_sh"
